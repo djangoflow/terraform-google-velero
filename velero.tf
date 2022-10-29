@@ -10,6 +10,12 @@ image:
   repository: velero/velero
   tag: latest
   pullPolicy: IfNotPresent
+resources:
+  limits:
+    memory: 512Mi
+  requests:
+    cpu: 100m
+    memory: 256Mi
 initContainers:
   - name: velero-plugin-for-gcp
     image: velero/velero-plugin-for-gcp:latest
