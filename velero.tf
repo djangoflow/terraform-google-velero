@@ -29,7 +29,7 @@ configuration:
     name: default
     bucket: ${google_storage_bucket.bucket.name}
     config:
-      serviceAccount: ${local.google_sa}
+      serviceAccount: ${module.service_account.email}
   logLevel: info
   logFormat: json
 serviceAccount:
