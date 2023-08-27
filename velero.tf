@@ -24,9 +24,9 @@ initContainers:
       - mountPath: /target
         name: plugins
 configuration:
-  provider: gcp
   backupStorageLocation:
-    name: default
+  - name: default
+    provider: gcp
     bucket: ${google_storage_bucket.bucket.name}
     config:
       serviceAccount: ${module.service_account.email}
@@ -41,8 +41,8 @@ serviceAccount:
 credentials:
   useSecret: false
 backupsEnabled: true
-snapshotsEnabled: true
-deployRestic: false
+snapshotsEnabled: false
+deployNodeAgent: true
 
 # Backup schedules to create.
 # Eg:
